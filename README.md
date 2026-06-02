@@ -11,24 +11,19 @@ To overcome the inefficiency and human error associated with manual multimeter c
 
 ## Key Features & Results
 
-* 
-**Safe Voltage Isolation:** The circuit uses optocouplers to isolate the high-voltage battery side from the low-voltage control circuitry.
+* **Safe Voltage Isolation:** The circuit uses optocouplers to isolate the high-voltage battery side from the low-voltage control circuitry.
 
 
-* 
-**Clear Visual Indicators:** Three LEDs provide immediate status identification without the need for additional tools: Green for correct polarity, Red for reverse polarity, and Orange for no valid input.
+* **Clear Visual Indicators:** Three LEDs provide immediate status identification without the need for additional tools: Green for correct polarity, Red for reverse polarity, and Orange for no valid input.
 
 
-* 
-**Audible Alerts:** A buzzer activates to immediately alert the user if a reverse polarity connection is detected, which is useful in noisy or low-visibility environments.
+* **Audible Alerts:** A buzzer activates to immediately alert the user if a reverse polarity connection is detected, which is useful in noisy or low-visibility environments.
 
 
-* 
-**Remote Monitoring:** Polarity data is transmitted over a CAN network, allowing seamless integration with broader Battery Management Systems (BMS) or remote monitoring stations.
+* **Remote Monitoring:** Polarity data is transmitted over a CAN network, allowing seamless integration with broader Battery Management Systems (BMS) or remote monitoring stations.
 
 
-* 
-**Hardware Debugging:** The custom PCB design includes onboard test points for critical signals, such as analog lines and optocoupler outputs, to simplify debugging.
+* **Hardware Debugging:** The custom PCB design includes onboard test points for critical signals, such as analog lines and optocoupler outputs, to simplify debugging.
 
 
 
@@ -36,28 +31,22 @@ To overcome the inefficiency and human error associated with manual multimeter c
 
 ## Working Principle
 
-* 
-**Voltage Sensing:** Two PC817 optocouplers (U1 and U2) are connected across the battery input. U1 activates under correct polarity , while U2 activates under reverse polarity.
+* **Voltage Sensing:** Two PC817 optocouplers (U1 and U2) are connected across the battery input. U1 activates under correct polarity , while U2 activates under reverse polarity.
 
 
-* 
-**Microcontroller Logic:** The analog outputs from U1 and U2 are fed to pins A2 and A3 on the Arduino Nano, which reads them using the `analogRead()` function.
+* **Microcontroller Logic:** The analog outputs from U1 and U2 are fed to pins A2 and A3 on the Arduino Nano, which reads them using the `analogRead()` function.
 
 
-* 
-**Right Polarity Event:** If only U1 is active, the system triggers the Green LED (D5) to indicate correct polarity.
+* **Right Polarity Event:** If only U1 is active, the system triggers the Green LED (D5) to indicate correct polarity.
 
 
-* 
-**Reverse Polarity Event:** If only U2 is active, the system triggers the Red LED (D4) and activates a buzzer via a BC-547 transistor switch circuit on digital pin D5.
+* **Reverse Polarity Event:** If only U2 is active, the system triggers the Red LED (D4) and activates a buzzer via a BC-547 transistor switch circuit on digital pin D5.
 
 
-* 
-**Fail-Safe Mechanism:** If both optocouplers conduct simultaneously (due to a fault or noise), or neither conducts, the system defaults to a "no valid input" state and activates the Orange LED (D10) to prevent false positives.
+* **Fail-Safe Mechanism:** If both optocouplers conduct simultaneously (due to a fault or noise), or neither conducts, the system defaults to a "no valid input" state and activates the Orange LED (D10) to prevent false positives.
 
 
-* 
-**CAN Bus Transmission:** The determined polarity status is encoded into a CAN frame and broadcasted over the CAN bus utilizing an MCP2515 CAN controller and a TJA1050 transceiver.
+* **CAN Bus Transmission:** The determined polarity status is encoded into a CAN frame and broadcasted over the CAN bus utilizing an MCP2515 CAN controller and a TJA1050 transceiver.
 
 
 
@@ -96,13 +85,10 @@ To overcome the inefficiency and human error associated with manual multimeter c
 
 ## Future Scope
 
-* 
-**Wireless Data Transmission:** Integrating BLE modules or an ESP32 to wirelessly transmit polarity data to a centralized monitoring dashboard.
+* **Wireless Data Transmission:** Integrating BLE modules or an ESP32 to wirelessly transmit polarity data to a centralized monitoring dashboard.
 
 
-* 
-**Automatic Shutdown/Relay Control:** Adding a relay-based cutoff system that automatically disconnects the electrical load if a reverse connection is detected for enhanced physical safety.
+* **Automatic Shutdown/Relay Control:** Adding a relay-based cutoff system that automatically disconnects the electrical load if a reverse connection is detected for enhanced physical safety.
 
 
-* 
-**Multi-Channel Testing Support:** Scaling the hardware and software logic to evaluate multiple battery packs or channels simultaneously for large-scale industrial operations.
+* **Multi-Channel Testing Support:** Scaling the hardware and software logic to evaluate multiple battery packs or channels simultaneously for large-scale industrial operations.
