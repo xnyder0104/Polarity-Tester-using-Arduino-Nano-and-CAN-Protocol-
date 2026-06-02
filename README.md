@@ -1,7 +1,5 @@
 # Polarity Tester using Arduino Nano and CAN Protocol
-Here is the updated `README.md` content for your GitHub repository, with the BOM and Software Logic sections removed as requested.
 
----
 
 # Polarity Tester using Arduino Nano and CAN Protocol
 
