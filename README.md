@@ -1,8 +1,6 @@
 # Polarity Tester using Arduino Nano and CAN Protocol
 
 
-# Polarity Tester using Arduino Nano and CAN Protocol
-
 ## Project Overview
 
 This project is an automated polarity tester designed specifically for high-voltage battery systems, such as 51.2V 16S LiFePO4 (LFP) battery packs. Connecting batteries in reverse polarity can lead to dangerous consequences, including short circuits, permanent damage to the Battery Management System (BMS) and downstream circuits, spark hazards, and severe user safety risks.
